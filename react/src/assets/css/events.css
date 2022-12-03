@@ -1,0 +1,67 @@
+.main-event {
+  height: 100%;
+  width: 64%;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.event-img {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.location-box {
+  height: 200px;
+  width: 100%;
+}
+
+.right-panel {
+  width: 33%;
+}
+
+.event-container {
+  width: 100vw;
+  clear: both;
+  display: table;
+  margin-top: -5%;
+}
+
+.search-box {
+  border: 1px solid black;
+  margin: 3% 0 0 0;
+  padding: 5%;
+  width: 100%;
+  height: 400px;
+  background-color: white;
+}
+
+.upcoming-events {
+  border: 1px solid black;
+  margin: 1% 0 0 0;
+  height: 850px;
+  width: 100%;
+  background-color: white;
+  padding: 5%;
+}
+
+.feeds-container {
+  max-height: 100%;
+}
+
+@media (max-width: 1300px) {
+  html {
+    overflow-x: hidden;
+  }
+  .right-panel {
+    width: 100%;
+  }
+  .search-box {
+    margin: 0;
+    width: 100%;
+  }
+
+  .main-event {
+    width: 100%;
+  }
+}

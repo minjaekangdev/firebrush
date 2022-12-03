@@ -1,0 +1,10 @@
+.info-window {
+  background: white;
+  padding: 15px;
+  height: 100%;
+}
+
+.map-container {
+  width: 100vw;
+  height: 100vh;
+}

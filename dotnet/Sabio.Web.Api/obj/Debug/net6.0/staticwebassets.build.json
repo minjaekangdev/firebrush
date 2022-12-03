@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "QC83bSi15LgWFhBViV3leLOJOa52YlE1SnxlTlNqoiE=",
+  "Source": "Sabio.Web.Api",
+  "BasePath": "_content/Sabio.Web.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

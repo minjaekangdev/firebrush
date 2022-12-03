@@ -1,0 +1,6 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/80e20ec4-bfff-439c-909b-7462d440f2c6/AppServices/subscriptions/80e20ec4-bfff-439c-909b-7462d440f2c6/resourceGroups/Firebrush/providers/Microsoft.Web/sites/firebrush",
+  "appService.deploySubpath": ".",
+  "liveServer.settings.host": "localhost",
+  "liveServer.settings.port": 1932
+}

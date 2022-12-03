@@ -1,0 +1,31 @@
+.navbar-logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: 80px;
+  height: auto;
+  object-fit: fill;
+}
+
+.navbar-link {
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+}
+.navbar-link:hover {
+  color: lightcoral;
+}
+
+.navbar-buttons:hover {
+  color: white;
+  background-color: coral;
+}
+
+.navbar-buttons {
+  background: orange;
+  color: white;
+}
+
+/* .main-nav {
+  min-height: 60px;
+  height: 60px;
+} */
