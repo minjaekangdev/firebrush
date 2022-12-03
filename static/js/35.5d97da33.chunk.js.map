@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/35.5d97da33.chunk.js","mappings":"gIAMA,UAJA,WACE,OAAO,0CACT,C","sources":["components/error/PageNotFound.tsx"],"sourcesContent":["import React from \"react\";\r\n\r\nfunction PageNotFound() {\r\n  return <h1>Page not found</h1>;\r\n}\r\n\r\nexport default PageNotFound;\r\n"],"names":[],"sourceRoot":""}
