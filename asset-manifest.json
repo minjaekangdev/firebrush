@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/firebrush/static/css/main.69466818.css",
-    "main.js": "/firebrush/static/js/main.a4f28311.js",
+    "main.js": "/firebrush/static/js/main.ee6cea9b.js",
     "static/css/960.3c397917.chunk.css": "/firebrush/static/css/960.3c397917.chunk.css",
     "static/js/960.3a2b5abf.chunk.js": "/firebrush/static/js/960.3a2b5abf.chunk.js",
     "static/css/208.3c397917.chunk.css": "/firebrush/static/css/208.3c397917.chunk.css",
@@ -24,7 +24,7 @@
     "static/media/howto.png": "/firebrush/static/media/howto.f30472e61bdcaa411976.png",
     "index.html": "/firebrush/index.html",
     "main.69466818.css.map": "/firebrush/static/css/main.69466818.css.map",
-    "main.a4f28311.js.map": "/firebrush/static/js/main.a4f28311.js.map",
+    "main.ee6cea9b.js.map": "/firebrush/static/js/main.ee6cea9b.js.map",
     "960.3c397917.chunk.css.map": "/firebrush/static/css/960.3c397917.chunk.css.map",
     "960.3a2b5abf.chunk.js.map": "/firebrush/static/js/960.3a2b5abf.chunk.js.map",
     "208.3c397917.chunk.css.map": "/firebrush/static/css/208.3c397917.chunk.css.map",
@@ -46,6 +46,6 @@
   },
   "entrypoints": [
     "static/css/main.69466818.css",
-    "static/js/main.a4f28311.js"
+    "static/js/main.ee6cea9b.js"
   ]
 }
