@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { GoogleMap, InfoWindowF } from "@react-google-maps/api";
-import GoogleApiLoad from "../layout/GoogleApiLoad";
+import GoogleApiLoad from "../GoogleApiLoad";
 import { aEvent, Coord } from "../../types/Types";
 import "../../assets/css/map.css";
 

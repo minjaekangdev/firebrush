@@ -103,7 +103,9 @@ function UpcomingEvents() {
       </div>
 
       <div className="row d-table">
-        <h4 style={{ height: "fit-content", width: "100%" }}>My Events</h4>
+        <h4 style={{ height: "fit-content", width: "100%" }}>
+          My Upcoming Events
+        </h4>
       </div>
       <div
         className="row feeds-container"

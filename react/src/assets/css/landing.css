@@ -1,12 +1,3 @@
-.landing-bg {
-  background: url("https://img.freepik.com/free-photo/maple-leaf-border-background-orange-watercolor-autumn-season_53876-128735.jpg?w=2000")
-    no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 .landing-main {
   padding: 128px 16px;
 }
@@ -24,6 +15,15 @@
 
 .aboutus-keyboard {
   height: 250px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.howtoimg {
+  max-width: 100%;
+  max-height: 100%;
+  width: 250px;
+  height: auto;
 }
 
 .firebrush-btn {
