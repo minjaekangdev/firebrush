@@ -41,7 +41,7 @@ function MainEvent() {
   }, []);
 
   return (
-    <div className="main-event p-4 rounded">
+    <div className="main-event p-4 rounded ml-5">
       <div className="row">
         <h2>{mainEvent.headline}</h2>
         <img

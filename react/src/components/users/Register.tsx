@@ -1,11 +1,12 @@
 import React from "react";
-import { Formik, Form, Field, FormikValues, FormikErrors } from "formik";
+import { Formik, Form, Field, FormikValues, ErrorMessage } from "formik";
 import netUserService from "../../services/userService";
 import { AxiosError } from "axios";
 import toastr from "toastr";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo2.png";
 import "../../assets/css/landing.css";
+import { RegisterSchema } from "../../schemas/RegisterSchema";
 
 function Register() {
   const navigate = useNavigate();
@@ -49,11 +50,19 @@ function Register() {
                       agreement: false,
                     }}
                     onSubmit={onSubmit}
+                    validationSchema={RegisterSchema}
                   >
                     <Form>
                       <div className="row mt-4">
                         <div className="col-12 mb-3">
-                          <label htmlFor="firstName">First Name</label>
+                          <label htmlFor="firstName">
+                            First Name:{" "}
+                            <ErrorMessage
+                              name="firstName"
+                              className="text-danger"
+                              component="span"
+                            />
+                          </label>
                           <Field
                             name="firstName"
                             type="text"
@@ -61,7 +70,14 @@ function Register() {
                           />
                         </div>
                         <div className="col-12 mb-3">
-                          <label htmlFor="lastName">Last Name</label>
+                          <label htmlFor="lastName">
+                            Last Name:{" "}
+                            <ErrorMessage
+                              name="lastName"
+                              className="text-danger"
+                              component="span"
+                            />
+                          </label>
                           <Field
                             name="lastName"
                             type="text"
@@ -69,7 +85,14 @@ function Register() {
                           />
                         </div>
                         <div className="col-12 mb-3">
-                          <label htmlFor="email">Birthday</label>
+                          <label htmlFor="email">
+                            Birthday:{" "}
+                            <ErrorMessage
+                              name="dob"
+                              className="text-danger"
+                              component="span"
+                            />
+                          </label>
                           <Field
                             name="dob"
                             type="date"
@@ -77,7 +100,14 @@ function Register() {
                           />
                         </div>
                         <div className="col-12 mb-3">
-                          <label htmlFor="email">Avatar Url</label>
+                          <label htmlFor="email">
+                            Avatar Url:{" "}
+                            <ErrorMessage
+                              name="avatarUrl"
+                              className="text-danger"
+                              component="span"
+                            />
+                          </label>
                           <Field
                             name="avatarUrl"
                             type="url"
@@ -85,7 +115,14 @@ function Register() {
                           />
                         </div>
                         <div className="col-12 mb-3">
-                          <label htmlFor="email">Email</label>
+                          <label htmlFor="email">
+                            Email:{" "}
+                            <ErrorMessage
+                              name="email"
+                              className="text-danger"
+                              component="span"
+                            />
+                          </label>
                           <Field
                             name="email"
                             type="email"
@@ -93,7 +130,14 @@ function Register() {
                           />
                         </div>
                         <div className="col-12 mb-3">
-                          <label htmlFor="password">Password</label>
+                          <label htmlFor="password">
+                            Password:{" "}
+                            <ErrorMessage
+                              name="password"
+                              className="text-danger"
+                              component="span"
+                            />
+                          </label>
                           <Field
                             name="password"
                             type="password"
@@ -102,7 +146,12 @@ function Register() {
                         </div>
                         <div className="col-12 mb-3">
                           <label htmlFor="passwordConfirm">
-                            Password Confirm
+                            Password Confirm:{" "}
+                            <ErrorMessage
+                              name="passwordConfirm"
+                              className="text-danger"
+                              component="span"
+                            />
                           </label>
                           <Field
                             name="passwordConfirm"
@@ -110,9 +159,24 @@ function Register() {
                             className="form-control"
                           />
                         </div>
+                        <div className="col-12 mb-3">
+                          <Field
+                            name="termsAgree"
+                            type="checkbox"
+                            className="form-check-input"
+                          />
+                          <label htmlFor="checkBox" className="mx-2">
+                            I agree to the terms and services.
+                            <ErrorMessage
+                              name="termsAgree"
+                              className="text-danger"
+                              component="p"
+                            />
+                          </label>
+                        </div>
                         <div className="col-12 mt-3">
                           <button className="btn btn-primary" type="submit">
-                            Login
+                            Register
                           </button>
                         </div>
                       </div>

@@ -5,7 +5,7 @@ import { AxiosError, AxiosResponse } from "axios";
 import { EventContext } from "../../contexts/EventContext";
 import toastr from "toastr";
 import { Autocomplete } from "@react-google-maps/api";
-import GoogleApiLoad from "../layout/GoogleApiLoad";
+import GoogleApiLoad from "../GoogleApiLoad";
 
 function SearchBox() {
   const { setPaginData } = useContext(EventContext);

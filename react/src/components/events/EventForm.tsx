@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
-import { Formik, Form, Field, FormikValues } from "formik";
+import { Formik, Form, Field, FormikValues, ErrorMessage } from "formik";
 import { Autocomplete } from "@react-google-maps/api";
 import logo from "../../assets/images/logo2.png";
 import netEventService from "../../services/eventService";
 import { AxiosError, AxiosResponse } from "axios";
 import toastr from "toastr";
 import { UserContext } from "../../contexts/UserContext";
-import GoogleApiLoad from "../layout/GoogleApiLoad";
+import GoogleApiLoad from "../GoogleApiLoad";
+import { EventAddSchema } from "../../schemas/EventAddSchema";
+import { useNavigate } from "react-router-dom";
 
 function EventForm() {
   const { currentUser } = useContext(UserContext);
@@ -32,6 +34,8 @@ function EventForm() {
     address: "",
     createdBy: currentUser.id,
   });
+
+  const navigate = useNavigate();
 
   const onAutoCompleteLoad = (
     autocomplete: google.maps.places.Autocomplete
@@ -78,6 +82,7 @@ function EventForm() {
 
   const onCreateSuccess = (response: AxiosResponse) => {
     toastr.success("Successfully created your event!");
+    navigate("/myevents");
   };
   const onCreateError = (error: AxiosError) => {
     toastr.error("An error occured..");
@@ -88,181 +93,285 @@ function EventForm() {
     netEventService.create(values).then(onCreateSuccess).catch(onCreateError);
   };
   return GoogleApiLoad() ? (
-    <div className="landing-bg">
-      <div className="container border-1 rounded">
-        <div className="row align-items-center justify-content-center min-vh-100">
-          <div className="col-12">
-            <div className="card">
-              <div className="card-body p-5">
-                <div className="mb-4">
-                  <img src={logo} alt="logo" className="img-fluid" />
-                  <h1 className="text-center">Create an event!</h1>
-                  <Formik
-                    enableReinitialize={true}
-                    initialValues={formData}
-                    onSubmit={onSubmit}
-                  >
-                    {({ values, validateField }) => (
-                      <Form>
-                        <div className="row mt-4">
-                          <div className="col-12 mb-3">
-                            <label htmlFor="name">Name</label>
-                            <Field
+    <div className="container border-1 rounded">
+      <div className="row align-items-center justify-content-center min-vh-100">
+        <div className="col-12">
+          <div className="card">
+            <div className="card-body p-5">
+              <div className="mb-4">
+                <img src={logo} alt="logo" className="img-fluid" />
+                <h1 className="text-center">Create an event!</h1>
+                <Formik
+                  enableReinitialize={true}
+                  initialValues={formData}
+                  onSubmit={onSubmit}
+                  validationSchema={EventAddSchema}
+                >
+                  {({ values }) => (
+                    <Form>
+                      <div className="row mt-4">
+                        <div className="col-12 mb-3">
+                          <label htmlFor="name">
+                            Name{" "}
+                            <ErrorMessage
                               name="name"
-                              type="text"
-                              className="form-control"
-                              placeholder="Event Name"
+                              component="span"
+                              className="text-danger"
                             />
-                          </div>
-                          <div className="col-12 mb-3">
-                            <label htmlFor="headline">Headline</label>
-                            <Field
-                              name="headline"
-                              type="text"
-                              className="form-control"
-                              placeholder="Main Headline"
-                            />
-                          </div>
-                          <div className="col-12 mb-3">
-                            <label htmlFor="summary">Short Summary</label>
-                            <Field
-                              name="summary"
-                              type="text"
-                              className="form-control"
-                              placeholder="Short summary"
-                            />
-                          </div>
-                          <div className="col-12 mb-3">
-                            <label htmlFor="description">Description</label>
-                            <Field
-                              name="description"
-                              type="text"
-                              className="form-control"
-                              placeholder="Full description"
-                            />
-                          </div>
-                          <div className="col-12 mb-3">
-                            <label htmlFor="slug">Slug</label>
-                            <Field
-                              name="slug"
-                              type="text"
-                              className="form-control"
-                              placeholder="Unique slug"
-                            />
-                          </div>
-                          <div className="col-12 mb-3">
-                            <label htmlFor="dateStart">Image URL</label>
-                            <Field
-                              name="imageUrl"
-                              type="url"
-                              className="form-control"
-                              placeholder="https://.."
-                            />
-                          </div>
-                          <div className="col-md-6 mb-3">
-                            <label htmlFor="dateStart">Start Date & Time</label>
-                            <Field
-                              name="dateStart"
-                              type="datetime-local"
-                              className="form-control"
-                            />
-                          </div>
-                          <div className="col-md-6 mb-3">
-                            <label htmlFor="dateStart">End Date & Time</label>
-                            <Field
-                              name="dateEnd"
-                              type="datetime-local"
-                              className="form-control"
-                            />
-                          </div>
-
-                          <div className="col-12 mb-3">
-                            <label htmlFor="buildingNumber">Address</label>
-                            <Autocomplete
-                              onLoad={onAutoCompleteLoad}
-                              onPlaceChanged={() => onPlaceChanged(values)}
-                            >
-                              <Field
-                                name="address"
-                                type="text"
-                                className="form-control"
-                                autocomplete="on"
-                              />
-                            </Autocomplete>
-                          </div>
-                          <div className="col-md-2 mb-3">
-                            <label htmlFor="buildingNumber">Street#</label>
-                            <Field
-                              name="buildingNumber"
-                              type="text"
-                              className="form-control"
-                            />
-                          </div>
-                          <div className="col-md-4 mb-3">
-                            <label htmlFor="street">Street</label>
-                            <Field
-                              name="street"
-                              type="text"
-                              className="form-control"
-                              value={values.street}
-                            />
-                          </div>
-                          <div className="col-md-2 mb-3">
-                            <label htmlFor="city">City</label>
-                            <Field
-                              name="city"
-                              type="text"
-                              className="form-control"
-                              value={values.city}
-                            />
-                          </div>
-                          <div className="col-md-2 mb-3">
-                            <label htmlFor="state">State</label>
-                            <Field
-                              name="state"
-                              type="text"
-                              className="form-control"
-                              value={values.state}
-                            />
-                          </div>
-                          <div className="col-md-2 mb-3">
-                            <label htmlFor="zipCode">ZipCode</label>
-                            <Field
-                              name="zipCode"
-                              type="text"
-                              className="form-control"
-                              value={values.zipCode}
-                            />
-                          </div>
-                          <div className="col-xl-6 mb-3">
-                            <label htmlFor="state">Latitude</label>
-                            <Field
-                              name="latitude"
-                              type="text"
-                              className="form-control"
-                              value={values.latitude}
-                            />
-                          </div>
-                          <div className="col-xl-6 mb-3">
-                            <label htmlFor="state">Longitude</label>
-                            <Field
-                              name="longitude"
-                              type="text"
-                              className="form-control"
-                              value={values.longitude}
-                            />
-                          </div>
-
-                          <div className="col-12 mt-3">
-                            <button className="btn btn-primary" type="submit">
-                              Create Event
-                            </button>
-                          </div>
+                          </label>
+                          <Field
+                            name="name"
+                            type="text"
+                            className="form-control"
+                            placeholder="Event Name"
+                          />
                         </div>
-                      </Form>
-                    )}
-                  </Formik>
-                </div>
+                        <div className="col-12 mb-3">
+                          <label htmlFor="headline">
+                            Headline{" "}
+                            <ErrorMessage
+                              name="headline"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="headline"
+                            type="text"
+                            className="form-control"
+                            placeholder="Main Headline"
+                          />
+                        </div>
+                        <div className="col-12 mb-3">
+                          <label htmlFor="summary">
+                            Short Summary{" "}
+                            <ErrorMessage
+                              name="summary"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="summary"
+                            type="text"
+                            className="form-control"
+                            placeholder="Short summary"
+                          />
+                        </div>
+                        <div className="col-12 mb-3">
+                          <label htmlFor="description">
+                            Description{" "}
+                            <ErrorMessage
+                              name="description"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="description"
+                            type="text"
+                            className="form-control"
+                            placeholder="Full description"
+                          />
+                        </div>
+                        <div className="col-12 mb-3">
+                          <label htmlFor="slug">
+                            Slug{" "}
+                            <ErrorMessage
+                              name="slug"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="slug"
+                            type="text"
+                            className="form-control"
+                            placeholder="Unique slug"
+                          />
+                        </div>
+                        <div className="col-12 mb-3">
+                          <label htmlFor="dateStart">
+                            Image URL{" "}
+                            <ErrorMessage
+                              name="imageUrl"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="imageUrl"
+                            type="url"
+                            className="form-control"
+                            placeholder="https://.."
+                          />
+                        </div>
+                        <div className="col-md-6 mb-3">
+                          <label htmlFor="dateStart">
+                            Start Date & Time{" "}
+                            <ErrorMessage
+                              name="dateStart"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="dateStart"
+                            type="datetime-local"
+                            className="form-control"
+                          />
+                        </div>
+                        <div className="col-md-6 mb-3">
+                          <label htmlFor="dateStart">
+                            End Date & Time{" "}
+                            <ErrorMessage
+                              name="dateEnd"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="dateEnd"
+                            type="datetime-local"
+                            className="form-control"
+                          />
+                        </div>
+
+                        <div className="col-12 mb-3">
+                          <label htmlFor="buildingNumber">Address</label>
+                          <Autocomplete
+                            onLoad={onAutoCompleteLoad}
+                            onPlaceChanged={() => onPlaceChanged(values)}
+                          >
+                            <Field
+                              name="address"
+                              type="text"
+                              className="form-control"
+                              autocomplete="on"
+                            />
+                          </Autocomplete>
+                        </div>
+                        <div className="col-md-2 mb-3">
+                          <label htmlFor="buildingNumber">
+                            Street#{" "}
+                            <ErrorMessage
+                              name="buildingNumber"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="buildingNumber"
+                            type="text"
+                            className="form-control"
+                          />
+                        </div>
+                        <div className="col-md-4 mb-3">
+                          <label htmlFor="street">
+                            Street{" "}
+                            <ErrorMessage
+                              name="street"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="street"
+                            type="text"
+                            className="form-control"
+                            value={values.street}
+                          />
+                        </div>
+                        <div className="col-md-2 mb-3">
+                          <label htmlFor="city">
+                            City{" "}
+                            <ErrorMessage
+                              name="city"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="city"
+                            type="text"
+                            className="form-control"
+                            value={values.city}
+                          />
+                        </div>
+                        <div className="col-md-2 mb-3">
+                          <label htmlFor="state">
+                            State{" "}
+                            <ErrorMessage
+                              name="state"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="state"
+                            type="text"
+                            className="form-control"
+                            value={values.state}
+                          />
+                        </div>
+                        <div className="col-md-2 mb-3">
+                          <label htmlFor="zipCode">
+                            ZipCode{" "}
+                            <ErrorMessage
+                              name="zipCode"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="zipCode"
+                            type="text"
+                            className="form-control"
+                            value={values.zipCode}
+                          />
+                        </div>
+                        <div className="col-xl-6 mb-3">
+                          <label htmlFor="state">
+                            Latitude{" "}
+                            <ErrorMessage
+                              name="latitude"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="latitude"
+                            type="text"
+                            className="form-control"
+                            value={values.latitude}
+                          />
+                        </div>
+                        <div className="col-xl-6 mb-3">
+                          <label htmlFor="state">
+                            Longitude{" "}
+                            <ErrorMessage
+                              name="longitude"
+                              component="span"
+                              className="text-danger"
+                            />
+                          </label>
+                          <Field
+                            name="longitude"
+                            type="text"
+                            className="form-control"
+                            value={values.longitude}
+                          />
+                        </div>
+
+                        <div className="col-12 mt-3">
+                          <button className="btn btn-primary" type="submit">
+                            Create Event
+                          </button>
+                        </div>
+                      </div>
+                    </Form>
+                  )}
+                </Formik>
               </div>
             </div>
           </div>
