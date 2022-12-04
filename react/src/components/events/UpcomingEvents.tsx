@@ -68,7 +68,7 @@ function UpcomingEvents() {
   }, [myEvents]);
 
   return (
-    <div className="upcoming-events d-table rounded mt-4">
+    <div className="border bg-white p-3 d-table rounded w-100">
       <div className="row">
         <div className="col-8">
           <Pagination
@@ -81,7 +81,9 @@ function UpcomingEvents() {
         <div className="col-md-4">
           <button
             className={
-              currentUser.isLoggedIn ? "btn btn-light float-end mb-4" : "d-none"
+              currentUser.isLoggedIn
+                ? "btn btn-success float-end mb-4"
+                : "d-none"
             }
             onClick={onNewEventClick}
           >
@@ -92,9 +94,8 @@ function UpcomingEvents() {
       <div className="row">
         <div className="col">
           <button
-            className="btn btn float-end"
+            className="btn btn-secondary float-end"
             id="viewAllOnMap"
-            style={{ backgroundColor: "#E6E9ED" }}
             onClick={onViewMapClick}
           >
             View All On Map
@@ -103,16 +104,9 @@ function UpcomingEvents() {
       </div>
 
       <div className="row d-table">
-        <h4 style={{ height: "fit-content", width: "100%" }}>
-          My Upcoming Events
-        </h4>
+        <h4>My Upcoming Events</h4>
       </div>
-      <div
-        className="row feeds-container"
-        style={{ height: "fit-content", width: "inherit" }}
-      >
-        {components}
-      </div>
+      <div className="row w-100 h-100">{components}</div>
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import Pagination from "rc-pagination";
 import { aEvent } from "../../types/Types";
 import { EventContext } from "../../contexts/EventContext";
-import "../../assets/css/landing.css";
 import BigEventCard from "./BigEventCard";
 import SearchBox from "./SearchBox";
 import toastr from "toastr";
@@ -68,7 +67,7 @@ function Events() {
   };
 
   return (
-    <div className="landing-bg">
+    <>
       <h1 className="fw-bold text-center pt-4">Browse Events</h1>
       <div className="container border mt-4 rounded bg-white">
         <div className="container mt-3 rounded bg-white">
@@ -114,7 +113,7 @@ function Events() {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

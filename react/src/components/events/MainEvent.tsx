@@ -41,7 +41,7 @@ function MainEvent() {
   }, []);
 
   return (
-    <div className="main-event p-4 rounded ml-5">
+    <div className="bg-white border p-4 rounded ml-5">
       <div className="row">
         <h2>{mainEvent.headline}</h2>
         <img
@@ -49,18 +49,20 @@ function MainEvent() {
           src={mainEvent.imageUrl}
           alt="eventimg"
         />
+        <h6 style={{ fontSize: "20px" }}>Summary</h6>
         <p>{mainEvent.summary}</p>
+        <h6 style={{ fontSize: "20px" }}>Description</h6>
         <p>{mainEvent.description}</p>
         <div className="row d-flex justify-content-between">
-          <div className="col-6">
+          <div className="col-xl-6">
             <iframe
               title="map"
               src={`https://www.google.com/maps/embed/v1/place?key=${key}&q=${mainEvent.metaData[0].location[0].buildingNumber} ${mainEvent.metaData[0].location[0].street} ${mainEvent.metaData[0].location[0].city}, ${mainEvent.metaData[0].location[0].state} ${mainEvent.metaData[0].location[0].zipCode}`}
-              style={{ border: "0", width: "100%", height: "180px" }}
               loading="lazy"
+              className="w-100 h-100"
             ></iframe>
           </div>
-          <div className="col-6">
+          <div className="col-xl-6">
             <h6 style={{ fontSize: "20px" }}>Location</h6>
             <p id="mainLocation">
               {mainEvent.metaData[0].location[0].buildingNumber}{" "}

@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import "../../assets/css/events.css";
-import "../../assets/css/landing.css";
 import MainEvent from "./MainEvent";
 import UpcomingEvents from "./UpcomingEvents";
 import { EventContext } from "../../contexts/EventContext";
@@ -11,13 +10,17 @@ function MyEvents() {
   const { myEvents } = useContext(EventContext);
   const { currentUser } = useContext(UserContext);
   return myEvents.length > 0 && currentUser.isLoggedIn ? (
-    <div className="row p-4">
-      <h1 className="fw-bold text-center">My Events</h1>
-      <MainEvent />
-      <div className="right-panel float-left">
-        <UpcomingEvents />
+    <>
+      <h1 className="fw-bold text-center pt-4">My Events</h1>
+      <div className="row p-4 h-100" style={{ marginBottom: "5%" }}>
+        <div className="col-xl-8 float-left mb-2">
+          <MainEvent />
+        </div>
+        <div className="col-xl-4 float-left">
+          <UpcomingEvents />
+        </div>
       </div>
-    </div>
+    </>
   ) : (
     <div className="container pt-5">
       <h1 className="fw-bold text-center">You have no signed up events yet!</h1>

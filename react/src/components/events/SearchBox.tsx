@@ -68,10 +68,7 @@ function SearchBox() {
   };
 
   return GoogleApiLoad() ? (
-    <div
-      className="align-content-center d-table rounded"
-      style={{ width: "100%" }}
-    >
+    <div className="align-content-center d-table rounded w-100">
       <Formik
         enableReinitialize={true}
         initialValues={{

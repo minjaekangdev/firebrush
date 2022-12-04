@@ -124,6 +124,7 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             placeholder="Event Name"
+                            aria-label="name"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -140,6 +141,7 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             placeholder="Main Headline"
+                            aria-label="headline"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -156,6 +158,7 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             placeholder="Short summary"
+                            aria-label="summary"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -172,6 +175,7 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             placeholder="Full description"
+                            aria-label="description"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -188,10 +192,11 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             placeholder="Unique slug"
+                            aria-label="slug"
                           />
                         </div>
                         <div className="col-12 mb-3">
-                          <label htmlFor="dateStart">
+                          <label htmlFor="imageUrl">
                             Image URL{" "}
                             <ErrorMessage
                               name="imageUrl"
@@ -204,6 +209,7 @@ function EventForm() {
                             type="url"
                             className="form-control"
                             placeholder="https://.."
+                            aria-label="imageUrl"
                           />
                         </div>
                         <div className="col-md-6 mb-3">
@@ -219,10 +225,11 @@ function EventForm() {
                             name="dateStart"
                             type="datetime-local"
                             className="form-control"
+                            aria-label="dateStart"
                           />
                         </div>
                         <div className="col-md-6 mb-3">
-                          <label htmlFor="dateStart">
+                          <label htmlFor="dateEnd">
                             End Date & Time{" "}
                             <ErrorMessage
                               name="dateEnd"
@@ -234,6 +241,7 @@ function EventForm() {
                             name="dateEnd"
                             type="datetime-local"
                             className="form-control"
+                            aria-label="dateEnd"
                           />
                         </div>
 
@@ -248,6 +256,7 @@ function EventForm() {
                               type="text"
                               className="form-control"
                               autocomplete="on"
+                              aria-label="address"
                             />
                           </Autocomplete>
                         </div>
@@ -264,6 +273,7 @@ function EventForm() {
                             name="buildingNumber"
                             type="text"
                             className="form-control"
+                            aria-label="buildingNumber"
                           />
                         </div>
                         <div className="col-md-4 mb-3">
@@ -280,6 +290,7 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             value={values.street}
+                            aria-label="street"
                           />
                         </div>
                         <div className="col-md-2 mb-3">
@@ -296,6 +307,7 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             value={values.city}
+                            aria-label="city"
                           />
                         </div>
                         <div className="col-md-2 mb-3">
@@ -312,6 +324,7 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             value={values.state}
+                            aria-label="state"
                           />
                         </div>
                         <div className="col-md-2 mb-3">
@@ -328,6 +341,7 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             value={values.zipCode}
+                            aria-label="zipCode"
                           />
                         </div>
                         <div className="col-xl-6 mb-3">
@@ -344,6 +358,7 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             value={values.latitude}
+                            aria-label="latitude"
                           />
                         </div>
                         <div className="col-xl-6 mb-3">
@@ -360,6 +375,7 @@ function EventForm() {
                             type="text"
                             className="form-control"
                             value={values.longitude}
+                            aria-label="longitude"
                           />
                         </div>
 

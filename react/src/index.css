@@ -1,4 +1,5 @@
 body {
+  overflow-x: hidden;
   margin: 0;
   font-family: "Tahoma" !important;
   -webkit-font-smoothing: antialiased;
@@ -16,11 +17,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-html {
-  max-width: 100vw;
-  max-height: 100vh;
 }
 
 code {

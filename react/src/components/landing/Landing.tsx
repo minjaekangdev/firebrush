@@ -1,14 +1,13 @@
-import React from "react";
-import "../../assets/css/landing.css";
 import logo from "../../assets/images/logo2.png";
 import keyboard from "../../assets/images/keyboard.png";
 import howto from "../../assets/images/me2.jpg";
 import { Link } from "react-router-dom";
+import "../../assets/css/landing.css";
 
 function Landing() {
   return (
     <div>
-      <div className="text-center landing-main">
+      <div className="text-center py-5">
         <img src={logo} alt="logo" className="landing-logo" />
         <h3 className="m-2 fw-bold landing-h1">
           Sign up for all your fall keyboard events!
@@ -18,10 +17,10 @@ function Landing() {
         </Link>
       </div>
 
-      <div className="landing-container bg-white">
+      <div className="w-100 m-0 clearfix bg-white row justify-content-center">
         <div className="mx-auto">
           <div className="container">
-            <div className="twothird p-5 float-start">
+            <div className="col-xl-8 p-5 float-start">
               <h1>What is Firebrush?</h1>
               <h5 className="py-4">
                 Why should it be so hard to find those that enjoy the same hobby
@@ -40,17 +39,17 @@ function Landing() {
                 use by simplifying all aspects of event management.
               </p>
             </div>
-            <div className="third text-center float-start">
+            <div className="col-xl-4 p-5 float-start">
               <img src={keyboard} alt="me" className="aboutus-keyboard mt-5" />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-light landing-container">
+      <div className="bg-light m-0 w-100 clearfix d-table row justify-content-center">
         <div className="mx-auto">
           <div className="container">
-            <div className="third text-center float-start">
+            <div className="col-xl-4 p-5 text-center float-start">
               <img
                 src={howto}
                 alt="howto"
@@ -58,7 +57,7 @@ function Landing() {
               />
             </div>
 
-            <div className="twothird px-5 my-4 float-start">
+            <div className="col-xl-8 px-5 my-4 float-start">
               <h1>How to get started!</h1>
               <h5 className="py-4">Getting start is quick and simple!</h5>
 

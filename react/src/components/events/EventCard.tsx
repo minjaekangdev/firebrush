@@ -75,10 +75,15 @@ function EventCard({ event }: IEventCardProps) {
   };
   return (
     <div className="card m-2 w-100 h-100">
-      <div style={{ paddingBottom: "2%" }}>
+      <div className="pb-2">
         <div className="card-body">
           <h5>{event.headline}</h5>
-          <p>{event.metaData[0].dateStart}</p>
+          <p>
+            Start Date:{" "}
+            {new Date(event.metaData[0].dateStart).toLocaleDateString()}{" "}
+            {new Date(event.metaData[0].dateStart).toLocaleTimeString()}
+          </p>
+          <p>{event.summary}</p>
           <p>{event.description}</p>
         </div>
         <div className="row">

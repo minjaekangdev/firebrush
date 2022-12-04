@@ -112,6 +112,7 @@ function NavbarLanding() {
               className={`ms-auto mt-3 mt-lg-0  ${
                 currentUser.isLoggedIn ? "d-none" : ""
               }`}
+              data-testid="signin-up"
             >
               <Link
                 to="/login"
@@ -127,7 +128,10 @@ function NavbarLanding() {
               </Link>
             </span>
 
-            <span className={`${currentUser.isLoggedIn ? "d-flex" : "d-none"}`}>
+            <span
+              className={`${currentUser.isLoggedIn ? "d-flex" : "d-none"}`}
+              data-testid="quickmenu"
+            >
               <QuickMenu />
             </span>
           </div>

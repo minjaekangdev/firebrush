@@ -16,25 +16,16 @@ function BigEventCard({ event }: IBigEventCardProps) {
   };
 
   return (
-    <div className="card m-2" style={{ width: "100%" }}>
+    <div className="card m-2 bg-light w-100">
       <h1 className="fw-bold mt-3">{event.headline}</h1>
-      <div
-        className="card-img mt-2"
-        style={{ height: "auto", width: "inherit" }}
-      >
+      <div className="card-img mt-2 h-auto w-auto">
         <img
           src={event.imageUrl}
           alt=""
-          className="img-fluid img-thumbnail"
-          style={{
-            maxHeight: "100%",
-            maxWidth: "100%",
-            width: "100%",
-            objectFit: "cover",
-          }}
+          className="img-fluid img-thumbnail mainevent-img"
         />
       </div>
-      <div style={{ paddingBottom: "2%" }}>
+      <div className="pb-2">
         <div className="card-body">
           <p>
             Start: {new Date(event.metaData[0].dateStart).toLocaleDateString()}{" "}
@@ -49,7 +40,7 @@ function BigEventCard({ event }: IBigEventCardProps) {
         </div>
         <div className="row">
           <div className="col-6">
-            <button className="btn btn-light" onClick={handleViewMoreClick}>
+            <button className="btn btn-warning" onClick={handleViewMoreClick}>
               View More
             </button>
           </div>

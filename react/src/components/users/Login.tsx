@@ -5,7 +5,6 @@ import { AxiosResponse, AxiosError } from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import toastr from "toastr";
 import logo from "../../assets/images/logo2.png";
-import "../../assets/css/landing.css";
 import { UserContext } from "../../contexts/UserContext";
 
 function Login() {
@@ -29,7 +28,7 @@ function Login() {
     netUserService.login(values).then(onLoginSuccess).catch(onLoginError);
   }
   return (
-    <div className="landing-bg">
+    <div>
       <div className="container border-1 rounded">
         <div className="row align-items-center justify-content-center min-vh-100">
           <div className="col-xl-12">
@@ -54,6 +53,7 @@ function Login() {
                           <Field
                             name="email"
                             type="text"
+                            aria-label="email"
                             className="form-control"
                           />
                         </div>
@@ -62,6 +62,7 @@ function Login() {
                           <Field
                             name="password"
                             type="password"
+                            aria-label="password"
                             className="form-control"
                           />
                         </div>

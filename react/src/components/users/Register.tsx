@@ -5,7 +5,6 @@ import { AxiosError } from "axios";
 import toastr from "toastr";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo2.png";
-import "../../assets/css/landing.css";
 import { RegisterSchema } from "../../schemas/RegisterSchema";
 
 function Register() {
@@ -24,7 +23,7 @@ function Register() {
   };
 
   return (
-    <div className="landing-bg">
+    <div>
       <div className="container border-1 rounded">
         <div className="row align-items-center justify-content-center min-vh-100">
           <div className="col-12">
@@ -67,6 +66,7 @@ function Register() {
                             name="firstName"
                             type="text"
                             className="form-control"
+                            aria-label="firstName"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -82,6 +82,7 @@ function Register() {
                             name="lastName"
                             type="text"
                             className="form-control"
+                            aria-label="lastName"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -97,6 +98,7 @@ function Register() {
                             name="dob"
                             type="date"
                             className="form-control"
+                            aria-label="dob"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -112,6 +114,7 @@ function Register() {
                             name="avatarUrl"
                             type="url"
                             className="form-control"
+                            aria-label="avatarUrl"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -127,6 +130,7 @@ function Register() {
                             name="email"
                             type="email"
                             className="form-control"
+                            aria-label="email"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -142,6 +146,7 @@ function Register() {
                             name="password"
                             type="password"
                             className="form-control"
+                            aria-label="password"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -157,6 +162,7 @@ function Register() {
                             name="passwordConfirm"
                             type="password"
                             className="form-control"
+                            aria-label="passwordConfirm"
                           />
                         </div>
                         <div className="col-12 mb-3">
@@ -164,6 +170,7 @@ function Register() {
                             name="termsAgree"
                             type="checkbox"
                             className="form-check-input"
+                            aria-label="termsAgree"
                           />
                           <label htmlFor="checkBox" className="mx-2">
                             I agree to the terms and services.
