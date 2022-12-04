@@ -23,3 +23,7 @@ Thank you for visiting my custom events page template
 
 To run on local machine, run Sabio.StarterCore.sln and start debugging, open react folder and yarn install, yarn start 
 
+Front end: React w/ Typescript hosted on Git hub pages
+Middle tier: .NET hosted on Microsoft Azure
+Backend: MSSQL hosted on Microsfot Azure 
+
