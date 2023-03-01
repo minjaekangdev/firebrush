@@ -1,5 +1,7 @@
 # firebrush
 
+//not active
+
 Front page: https://minjaekangdev.github.io/firebrush/
 Backend: https://firebrush.azurewebsites.net/api/
 
